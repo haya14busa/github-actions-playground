@@ -1,0 +1,15 @@
+name: playground
+on: [push]
+jobs:
+  playground:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
+
+      - name: Dump GitHub Event
+        run: cat "${GITHUB_EVENT_PATH}"

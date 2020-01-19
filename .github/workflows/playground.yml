@@ -17,6 +17,9 @@ jobs:
       - name: Dump GitHub Event
         run: cat "${GITHUB_EVENT_PATH}"
 
+      - name: Dump Env
+        run: env
+
       - name: merged event
         if: github.event.pull_request.merged
         run: echo "pull_request.merged event!"

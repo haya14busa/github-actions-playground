@@ -1,5 +1,8 @@
 name: playground
-on: [push]
+on:
+  push:
+  pull_request:
+        types: [closed]
 jobs:
   playground:
     runs-on: ubuntu-latest
@@ -13,3 +16,8 @@ jobs:
 
       - name: Dump GitHub Event
         run: cat "${GITHUB_EVENT_PATH}"
+
+      - name: merged event
+        if: github.event.pull_request.merged
+        run: echo "pull_request.merged event!"
+

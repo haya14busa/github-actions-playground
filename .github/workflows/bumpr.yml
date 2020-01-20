@@ -1,20 +1,13 @@
 name: release
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - master
 
 jobs:
   release:
-    # Skip on Pull Request Close event.
-    if: "!(github.event_name == 'pull_request' && !github.event.pull_request.merged)"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          # Specify ref explicitly because it doesn't work with Pull Request closed event.
-          # https://github.com/actions/checkout/issues/136
-          ref: ${{ github.ref }}
-
       # Bump version on merging Pull Requests with specific labels. (bump:major,bump:minor,bump:patch)
-      - if: github.event.pull_request.merged
-        uses: haya14busa/action-bumpr@v1
+      - uses: haya14busa/action-bumpr@use-push-event

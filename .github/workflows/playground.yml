@@ -20,6 +20,9 @@ jobs:
       - name: Dump Env
         run: env
 
+      - name: Dump IP
+        run: curl https://httpbin.org/ip
+
       - name: merged event
         if: github.event.pull_request.merged
         run: echo "pull_request.merged event!"

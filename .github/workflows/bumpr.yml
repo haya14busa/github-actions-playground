@@ -11,6 +11,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub Event
+        run: cat "${GITHUB_EVENT_PATH}"
+
+      - name: Dump Env
+        run: env
+
       - uses: actions/checkout@v2
       # Bump version on merging Pull Requests with specific labels. (bump:major,bump:minor,bump:patch)
       # - uses: haya14busa/action-bumpr@v1

@@ -2,7 +2,9 @@ name: playground
 on:
   push:
   pull_request:
-        types: [closed]
+    types:
+      - closed
+      - labeled
 jobs:
   playground:
     runs-on: ubuntu-latest

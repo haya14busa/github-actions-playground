@@ -1,11 +1,10 @@
 name: playground
 on:
   push:
-  # pull_request:
-  #   types:
-  #     - closed
-  #     - labeled
-  # Ok?
+  pull_request:
+    types:
+      - closed
+      - labeled
   issues:
     types:
       - labeled

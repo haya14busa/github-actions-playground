@@ -1,9 +1,12 @@
 name: playground
 on:
   push:
-  pull_request:
+  # pull_request:
+  #   types:
+  #     - closed
+  #     - labeled
+  issues:
     types:
-      - closed
       - labeled
 jobs:
   playground:

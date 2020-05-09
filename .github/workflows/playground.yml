@@ -5,6 +5,7 @@ on:
   #   types:
   #     - closed
   #     - labeled
+  # Ok?
   issues:
     types:
       - labeled

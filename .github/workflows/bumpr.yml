@@ -13,5 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Bump version on merging Pull Requests with specific labels. (bump:major,bump:minor,bump:patch)
-      # - uses: haya14busa/action-bumpr@v1
-      - uses: haya14busa/action-bumpr@post-status
+      - uses: haya14busa/action-bumpr@v1

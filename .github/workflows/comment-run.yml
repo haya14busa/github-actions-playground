@@ -11,6 +11,18 @@ jobs:
       with:
         # 0 indicates all history
         fetch-depth: 0
+
+    - name: Dump GitHub Context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "${GITHUB_CONTEXT}"
+
+    - name: Dump GitHub Event
+      run: cat "${GITHUB_EVENT_PATH}"
+
+    - name: Dump Env
+      run: env
+
     - uses: nwtgck/actions-comment-run@v1.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}

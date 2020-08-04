@@ -34,3 +34,5 @@ jobs:
 
       - run: git show
       - run: echo "GITHUB_WORKSPACE:${GITHUB_WORKSPACE}"
+      - run: echo "GITHUB_ACTION:${GITHUB_ACTION}"
+      - run: echo "GITHUB_ACTIONS:${GITHUB_ACTIONS}"

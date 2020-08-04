@@ -31,7 +31,7 @@ jobs:
       - name: Download artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: playground
+          workflow: playground.yml
           commit: ${{ github.event.workflow_run.head_commit.id }}
           name: playground-artifact
 

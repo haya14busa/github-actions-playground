@@ -34,3 +34,4 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R
+      - run: cat world.txt

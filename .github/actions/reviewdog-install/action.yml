@@ -7,11 +7,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: |
-        mkdir -p "${{ runner.temp }}/reviewdog/bin"
-        echo "::add-path::${{ runner.temp }}/reviewdog/bin"
-        curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | \
-          sh -s -- -b "${{ runner.temp }}/reviewdog/bin" ${{ inputs.reviewdog_version }}
+    - run: $GITHUB_ACTION_PATH/script.sh ${{ runner.temp }} ${{ inputs.reviewdog_version }}
       shell: bash
     - run: reviewdog -version
       shell: bash

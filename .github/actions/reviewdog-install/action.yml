@@ -1,0 +1,16 @@
+name: 'Setup reviwedog'
+description: 'Setup reviwedog'
+inputs:
+  reviewdog_version:
+    description: 'reviewdog version'
+    default: 'latest'
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        mkdir -p "${RUNNER_TEMP}/reviewdog/bin"
+        echo ::add-path::$HOME/bin
+        curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | \
+          sh -s -- -b "${RUNNER_TEMP}/reviewdog/bin" ${{ inputs.reviewdog_version }}
+      shell: bash
+    - run: reviewdog -version

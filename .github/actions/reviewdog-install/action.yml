@@ -7,7 +7,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: $GITHUB_ACTION_PATH/script.sh ${{ runner.temp }} ${{ inputs.reviewdog_version }}
+    - run: $GITHUB_ACTION_PATH/install.sh ${{ runner.temp }} ${{ inputs.reviewdog_version }}
       shell: bash
     - run: reviewdog -version
       shell: bash

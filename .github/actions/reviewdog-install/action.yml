@@ -14,3 +14,4 @@ runs:
           sh -s -- -b "${RUNNER_TEMP}/reviewdog/bin" ${{ inputs.reviewdog_version }}
       shell: bash
     - run: reviewdog -version
+      shell: bash

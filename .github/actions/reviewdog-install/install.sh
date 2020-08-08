@@ -13,5 +13,4 @@ fi
 
 mkdir -p "${TEMP}/reviewdog/bin"
 echo "::add-path::${TEMP}/reviewdog/bin"
-curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | \
-  sh -s -- -b "${TEMP}/reviewdog/bin" "${VERSION}"
+curl -sfL "${INSTALL_SCRIPT}" | sh -s -- -b "${TEMP}/reviewdog/bin" "${VERSION}"

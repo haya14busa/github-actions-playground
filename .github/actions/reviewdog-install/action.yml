@@ -8,10 +8,10 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        mkdir -p "${RUNNER_TEMP}/reviewdog/bin"
-        echo "::add-path::${RUNNER_TEMP}/reviewdog/bin"
+        mkdir -p "${{ runner.temp }}/reviewdog/bin"
+        echo "::add-path::${{ runner.temp }}/reviewdog/bin"
         curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | \
-          sh -s -- -b "${RUNNER_TEMP}/reviewdog/bin" ${{ inputs.reviewdog_version }}
+          sh -s -- -b "${{ runner.temp }}/reviewdog/bin" ${{ inputs.reviewdog_version }}
       shell: bash
     - run: reviewdog -version
       shell: bash

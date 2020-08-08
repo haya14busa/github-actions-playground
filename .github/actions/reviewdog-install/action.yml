@@ -10,7 +10,7 @@ runs:
     - run: $GITHUB_ACTION_PATH/install.sh ${{ runner.temp }} ${{ inputs.reviewdog_version }}
       shell: bash
     - run: |
-        echo "::group::reviewdog -h"
+        echo "::group::📖 reviewdog -h"
         reviewdog -h 2>&1 || true
         echo "::endgroup::"
       shell: bash

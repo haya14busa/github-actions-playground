@@ -9,7 +9,7 @@ runs:
   steps:
     - run: |
         mkdir -p "${RUNNER_TEMP}/reviewdog/bin"
-        echo ::add-path::$HOME/bin
+        echo "::add-path::${RUNNER_TEMP}/reviewdog/bin"
         curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | \
           sh -s -- -b "${RUNNER_TEMP}/reviewdog/bin" ${{ inputs.reviewdog_version }}
       shell: bash

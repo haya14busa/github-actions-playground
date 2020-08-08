@@ -29,6 +29,8 @@ jobs:
         run: curl https://httpbin.org/ip
 
       - uses: ./.github/actions/reviewdog-install
+      - name: check reviewdog versikon
+        run: reviewdog -version
 
       - name: merged event
         if: github.event.pull_request.merged

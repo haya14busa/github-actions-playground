@@ -17,5 +17,3 @@ runs:
         reviewdog -h 2>&1 || true
         echo "::endgroup::"
       shell: bash
-    - run: env
-      shell: bash

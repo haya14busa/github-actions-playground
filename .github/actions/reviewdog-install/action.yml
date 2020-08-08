@@ -1,14 +1,17 @@
-name: 'Setup reviwedog'
-description: 'Setup reviwedog'
+name: 'Setup reviewdog'
+description: 'Setup reviewdog'
 inputs:
   reviewdog_version:
-    description: 'reviewdog version'
+    description: 'reviewdog version. [latest,nightly,vX.Y.Z]'
     default: 'latest'
 runs:
   using: 'composite'
   steps:
-    - run: $GITHUB_ACTION_PATH/install.sh ${{ runner.temp }} ${{ inputs.reviewdog_version }}
+    - run: $GITHUB_ACTION_PATH/install.sh
       shell: bash
+      env:
+        INPUT_REVIEWDOG_VERSION: ${{ inputs.reviewdog_version }}
+        REVIEWDOG_TEMPDIR: ${{ runner.temp }}
     - run: |
         echo "::group::📖 reviewdog -h"
         reviewdog -h 2>&1 || true

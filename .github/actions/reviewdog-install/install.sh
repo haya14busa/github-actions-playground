@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TEMP=$1
-VERSION=$2
+TEMP="${REVIEWDOG_TEMPDIR}"
+VERSION="${INPUT_REVIEWDOG_VERSION}"
 
 echo '🐶 Installing reviewdog ... https://github.com/reviewdog/reviewdog'
 

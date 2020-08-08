@@ -28,6 +28,16 @@ jobs:
       - name: Dump IP
         run: curl https://httpbin.org/ip
 
+      - uses: ./.github/actions/reviewdog-install
+      - name: check reviewdog version
+        run: reviewdog -version
+
+      - uses: ./.github/actions/reviewdog-install
+        with:
+          reviewdog_version: nightly
+      - name: check reviewdog version
+        run: reviewdog -version
+
       - name: merged event
         if: github.event.pull_request.merged
         run: echo "pull_request.merged event!"

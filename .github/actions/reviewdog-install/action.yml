@@ -10,7 +10,7 @@ runs:
     - run: $GITHUB_ACTION_PATH/install.sh
       shell: bash
       env:
-        INPUT_REVIEWDOG_VERSION: ${{ inputs.reviewdog_version }}
+        REVIEWDOG_VERSION: ${{ inputs.reviewdog_version }}
         REVIEWDOG_TEMPDIR: ${{ runner.temp }}
     - run: |
         echo "::group::📖 reviewdog -h"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="${INPUT_REVIEWDOG_VERSION:-latest}"
+VERSION="${REVIEWDOG_VERSION:-latest}"
 
 TEMP="${REVIEWDOG_TEMPDIR}"
 if [ -z "${TEMP}" ]; then

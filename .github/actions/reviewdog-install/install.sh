@@ -3,8 +3,6 @@
 TEMP=$1
 VERSION=$2
 
-echo "VERSION: ${VERSION}"
-
 INSTALL_SCRIPT='https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh'
 if [ "${VERSION}" == 'nightly' ] ; then
   INSTALL_SCRIPT='https://raw.githubusercontent.com/reviewdog/nightly/master/install.sh'

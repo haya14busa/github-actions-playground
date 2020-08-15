@@ -4,6 +4,10 @@ inputs:
   reviewdog_version:
     description: 'reviewdog version. [latest,nightly,vX.Y.Z]'
     default: 'latest'
+  test_input:
+    default: 14
+  test2-input:
+    default: 15
 runs:
   using: 'composite'
   steps:
@@ -12,6 +16,7 @@ runs:
       env:
         REVIEWDOG_VERSION: ${{ inputs.reviewdog_version }}
         REVIEWDOG_TEMPDIR: ${{ runner.temp }}
+        INPUTS_JSON: ${{ toJson(inputs) }}
     - run: |
         echo "::group::📖 reviewdog -h"
         reviewdog -h 2>&1 || true

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo '=== env ==='
+env
+echo '=== /env ==='
+
 VERSION="${REVIEWDOG_VERSION:-latest}"
 
 TEMP="${REVIEWDOG_TEMPDIR}"

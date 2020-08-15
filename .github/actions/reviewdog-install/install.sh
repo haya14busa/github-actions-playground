@@ -4,6 +4,10 @@ echo '=== env ==='
 env
 echo '=== /env ==='
 
+echo '=== jq inputs ==='
+echo "${INPUTS_JSON}" | jq .
+echo '=== /jq inputs ==='
+
 VERSION="${REVIEWDOG_VERSION:-latest}"
 
 TEMP="${REVIEWDOG_TEMPDIR}"

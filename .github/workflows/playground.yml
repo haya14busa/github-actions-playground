@@ -54,3 +54,10 @@ jobs:
         with:
           name: playground-artifact
           path: ${{ github.workspace }}/artifact/**/*
+
+      - name: Check scope
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -I -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com
+          curl -I -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/rate_limit

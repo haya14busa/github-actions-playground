@@ -1,4 +1,4 @@
-name: playground
+name: playground (workflow name)
 on:
   push:
   pull_request:
@@ -9,7 +9,8 @@ on:
     types:
       - labeled
 jobs:
-  playground:
+  playground-job-name:
+    name: playground job name
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1

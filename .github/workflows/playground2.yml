@@ -20,3 +20,20 @@ jobs:
       - name: Dump Env
         run: env
 
+  playground2-job2-name:
+    name: playground2 job2 name
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
+
+      - name: Dump GitHub Event
+        run: cat "${GITHUB_EVENT_PATH}"
+
+      - name: Dump Env
+        run: env
+

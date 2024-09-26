@@ -1,4 +1,4 @@
-name: playground
+name: playground (workflow name)
 on:
   push:
     # branches:
@@ -13,7 +13,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  playground:
+  playground-job-name:
+    name: playground job name
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1

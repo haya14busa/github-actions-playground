@@ -16,3 +16,5 @@ jobs:
       # - uses: haya14busa/action-bumpr@v1
       # test 1
       - uses: haya14busa/action-bumpr@sign-tag
+        with:
+          sign_tags: true

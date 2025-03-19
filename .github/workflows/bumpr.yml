@@ -8,7 +8,12 @@ on:
       - labeled
 
 jobs:
+  release-prerequisite-status: 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'OK'
   release:
+    needs: [release-prerequisite-status]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

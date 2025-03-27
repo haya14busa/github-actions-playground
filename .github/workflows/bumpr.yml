@@ -15,18 +15,24 @@ jobs:
   release:
     needs: [release-prerequisite-status]
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Enable OIDC
+      contents: write # Tag updates
     steps:
       - uses: actions/checkout@v2
       # Bump version on merging Pull Requests with specific labels. (bump:major,bump:minor,bump:patch)
       # - uses: haya14busa/action-bumpr@v1
       # test 3
+      - uses: chainguard-dev/actions/setup-gitsign@141bf225e9c19c34304ee9d06e9be9c44a6d8765 # main branch as of 2024-12-27
+      - run: git config --global tag.gpgSign true
+      - uses: haya14busa/action-bumpr@composite
       # - uses: haya14busa/action-bumpr@sign-tag
       #   with:
       #     sign_tags: true
-      - name: Bump version and push tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
-        with:
-          # github_token: ${{ secrets.GITHUB_TOKEN }}
-          github_token: ${{ secrets.TOKEN_SIGN_TEST }}
-          create_annotated_tag: true
+      # - name: Bump version and push tag
+      #   id: tag_version
+      #   uses: mathieudutour/github-tag-action@v6.2
+      #   with:
+      #     # github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     github_token: ${{ secrets.TOKEN_SIGN_TEST }}
+      #     create_annotated_tag: true

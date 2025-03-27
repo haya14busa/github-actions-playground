@@ -18,6 +18,7 @@ jobs:
     permissions:
       id-token: write # Enable OIDC
       contents: write # Tag updates
+      pull-request: write # Post a comment
     steps:
       - uses: actions/checkout@v2
       # Bump version on merging Pull Requests with specific labels. (bump:major,bump:minor,bump:patch)

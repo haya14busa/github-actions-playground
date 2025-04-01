@@ -51,3 +51,10 @@ jobs:
         with:
           name: playground-artifact
           path: ${{ github.workspace }}/artifact/**/*
+
+      - uses: jenseng/dynamic-uses@v1
+        with:
+          # now you can use expressions 🥳
+          uses: actions/setup-node@${{ 'v4' }}
+          # the `with` needs to be converted to a valid json string
+          with: '{ "node-version": 18 }'

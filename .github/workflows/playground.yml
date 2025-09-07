@@ -69,3 +69,8 @@ jobs:
           ACTIONS_DIR="$(dirname "$RUNNER_WORKSPACE")/_actions"
           echo "ACTIONS_DIR=$ACTIONS_DIR"
           find "$ACTIONS_DIR" -maxdepth 4 -type d | sort
+      - name: Show downloaded actions
+        shell: bash
+        run: |
+          cd /home/runner/work/_actions/actions/checkout/v1
+          git status

@@ -73,4 +73,6 @@ jobs:
         shell: bash
         run: |
           cd /home/runner/work/_actions/actions/checkout/v1
-          git status
+          # git status
+          # => not a git repository
+          ls -a -l

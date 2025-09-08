@@ -71,7 +71,9 @@ jobs:
           find "$ACTIONS_DIR" -maxdepth 4 -type d | sort
       - shell: bash
         run: |
-          ls -a -l /home/runner/work/_actions/actions/checkout/v1
+          ls -a -l /home/runner/work/
+          ls -a -l /home/runner/
+
   call-reusable-local:
     uses: ./.github/workflows/hello-world-reusable.yml
     with:

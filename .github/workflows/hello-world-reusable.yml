@@ -1,0 +1,32 @@
+name: Reusable Hello World Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: 'Name to greet'
+        required: false
+        type: string
+        default: 'World'
+    secrets:
+      example_secret:
+        description: 'Example secret (optional)'
+        required: false
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: |
+          echo "Hello ${{ inputs.name }}!"
+          echo "This is a reusable workflow"
+
+      - name: Show timestamp
+        run: echo "Current time: $(date)"
+
+      - name: Use secret if provided
+        if: ${{ secrets.example_secret != '' }}
+        run: echo "Secret length: ${#SECRET}"
+        env:
+          SECRET: ${{ secrets.example_secret }}

@@ -1,0 +1,21 @@
+name: Call Hello World Workflow
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+    inputs:
+      custom_name:
+        description: 'Custom name to greet'
+        required: false
+        default: 'GitHub Actions'
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/hello-world-reusable.yml
+    with:
+      name: ${{ inputs.custom_name || 'GitHub Actions' }}
+    # secrets:
+    #   example_secret: ${{ secrets.MY_SECRET }}

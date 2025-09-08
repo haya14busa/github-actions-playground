@@ -13,9 +13,16 @@ on:
         default: 'GitHub Actions'
 
 jobs:
-  call-reusable:
+  call-reusable-local:
     uses: ./.github/workflows/hello-world-reusable.yml
     with:
-      name: ${{ inputs.custom_name || 'GitHub Actions' }}
+      name: ${{ inputs.custom_name || 'local' }}
+    # secrets:
+    #   example_secret: ${{ secrets.MY_SECRET }}
+    #
+  call-reusable:
+    uses: haya14busa/github-actions-playground/.github/workflows/hello-world-reusable.yml@master
+    with:
+      name: ${{ inputs.custom_name || 'remote' }}
     # secrets:
     #   example_secret: ${{ secrets.MY_SECRET }}

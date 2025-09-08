@@ -22,9 +22,6 @@ jobs:
           echo "Hello ${{ inputs.name }}!"
           echo "This is a reusable workflow"
 
-      - name: Show timestamp
-        run: echo "Current time: $(date)"
-
       - name: Use secret if provided
         if: ${{ secrets.example_secret != '' }}
         run: echo "Secret length: ${#SECRET}"

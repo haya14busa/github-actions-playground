@@ -69,13 +69,9 @@ jobs:
           ACTIONS_DIR="$(dirname "$RUNNER_WORKSPACE")/_actions"
           echo "ACTIONS_DIR=$ACTIONS_DIR"
           find "$ACTIONS_DIR" -maxdepth 4 -type d | sort
-      - name: Show downloaded actions
-        shell: bash
+      - shell: bash
         run: |
-          cd /home/runner/work/_actions/actions/checkout/v1
-          # git status
-          # => not a git repository
-          ls -a -l
+          ls -a -l /home/runner/work/_actions/actions/checkout/v1
   call-reusable-local:
     uses: ./.github/workflows/hello-world-reusable.yml
     with:

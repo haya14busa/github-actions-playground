@@ -21,9 +21,3 @@ jobs:
         run: |
           echo "Hello ${{ inputs.name }}!"
           echo "This is a reusable workflow"
-
-      - name: Use secret if provided
-        if: ${{ secrets.example_secret != '' }}
-        run: echo "Secret length: ${#SECRET}"
-        env:
-          SECRET: ${{ secrets.example_secret }}
